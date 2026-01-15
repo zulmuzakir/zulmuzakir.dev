@@ -14,6 +14,5 @@ export default defineConfig({
         viteEnvironment: {name: "ssr"}
       }
     ),
-    reactRouter(),
   ],
 });
