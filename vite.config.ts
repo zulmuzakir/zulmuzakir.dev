@@ -8,6 +8,5 @@ export default defineConfig({
     tailwindcss(),
     reactRouter(),
     tsconfigPaths(),
-    reactRouter(),
   ],
 });
