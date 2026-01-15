@@ -19,20 +19,26 @@ export const links: Route.LinksFunction = () => [
   },
   {
     rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
+    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap",
   },
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Portfolio of Zulfikharali Muzakir - A passionate Software Developer crafting digital experiences." />
+        <meta name="keywords" content="software developer, portfolio, web developer, frontend, backend" />
+        <meta name="author" content="Zulfikharali Muzakir" />
+        <meta property="og:title" content="Zulfikharali Muzakir | Software Developer" />
+        <meta property="og:description" content="Portfolio of Zulfikharali Muzakir - A passionate Software Developer crafting digital experiences." />
+        <meta property="og:type" content="website" />
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="antialiased" style={{ fontFamily: "var(--font-inter)" }}>
         {children}
         <ScrollRestoration />
         <Scripts />
