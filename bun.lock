@@ -13,6 +13,7 @@
         "react-router": "7.12.0",
       },
       "devDependencies": {
+        "@cloudflare/vite-plugin": "^1.21.0",
         "@react-router/dev": "7.12.0",
         "@tailwindcss/vite": "^4.1.18",
         "@types/node": "^22",
@@ -22,6 +23,7 @@
         "typescript": "^5.9.2",
         "vite": "^7.3.1",
         "vite-tsconfig-paths": "^5.1.4",
+        "wrangler": "^4.59.2",
       },
     },
   },
@@ -85,6 +87,8 @@
     "@cloudflare/kv-asset-handler": ["@cloudflare/kv-asset-handler@0.4.2", "", {}, "sha512-SIOD2DxrRRwQ+jgzlXCqoEFiKOFqaPjhnNTGKXSRLvp1HiOvapLaFG2kEr9dYQTYe8rKrd9uvDUzmAITeNyaHQ=="],
 
     "@cloudflare/unenv-preset": ["@cloudflare/unenv-preset@2.10.0", "", { "peerDependencies": { "unenv": "2.0.0-rc.24", "workerd": "^1.20251221.0" }, "optionalPeers": ["workerd"] }, "sha512-/uII4vLQXhzCAZzEVeYAjFLBNg2nqTJ1JGzd2lRF6ItYe6U2zVoYGfeKpGx/EkBF6euiU+cyBXgMdtJih+nQ6g=="],
+
+    "@cloudflare/vite-plugin": ["@cloudflare/vite-plugin@1.21.0", "", { "dependencies": { "@cloudflare/unenv-preset": "2.10.0", "miniflare": "4.20260114.0", "unenv": "2.0.0-rc.24", "wrangler": "4.59.2", "ws": "8.18.0" }, "peerDependencies": { "vite": "^6.1.0 || ^7.0.0" } }, "sha512-3VXtkfjOQL+k3Plj+t0BHRyw8iIIRBQ8RJU6KJHJQKdYHA6rJE/WlSa/lRd0A8MMhvP8e8QiMLuDqveEN8gCZg=="],
 
     "@cloudflare/workerd-darwin-64": ["@cloudflare/workerd-darwin-64@1.20260114.0", "", { "os": "darwin", "cpu": "x64" }, "sha512-HNlsRkfNgardCig2P/5bp/dqDECsZ4+NU5XewqArWxMseqt3C5daSuptI620s4pn7Wr0ZKg7jVLH0PDEBkA+aA=="],
 
