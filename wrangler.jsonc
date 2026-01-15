@@ -1,0 +1,9 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "zulmuzakir-portfolio",
+  "compatibility_date": "2025-01-15",
+  "main": "./workers/app.ts",
+  "observability": {
+    "enabled": true
+  }
+}
