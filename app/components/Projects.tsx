@@ -1,35 +1,6 @@
+import { Link } from "react-router";
 import { useScrollReveal } from "../hooks/useScrollReveal";
-
-const projects = [
-  {
-    id: 1,
-    title: "Project Alpha",
-    description: "A full-stack web application built with modern technologies. Features include real-time updates, authentication, and a beautiful UI.",
-    tags: ["Next.js", "TypeScript", "PostgreSQL"],
-    link: "#",
-  },
-  {
-    id: 2,
-    title: "Project Beta",
-    description: "Mobile-first e-commerce platform with seamless checkout experience and inventory management system.",
-    tags: ["React", "Node.js", "MongoDB"],
-    link: "#",
-  },
-  {
-    id: 3,
-    title: "Project Gamma",
-    description: "API service handling millions of requests. Built with performance and scalability in mind.",
-    tags: ["Go", "Redis", "Docker"],
-    link: "#",
-  },
-  {
-    id: 4,
-    title: "Project Delta",
-    description: "Developer tool that streamlines workflow automation and increases productivity for engineering teams.",
-    tags: ["TypeScript", "CLI", "Open Source"],
-    link: "#",
-  },
-];
+import { featuredProjects } from "../data/projects";
 
 export function Projects() {
   const { ref: sectionRef, isVisible } = useScrollReveal<HTMLElement>();
@@ -47,7 +18,7 @@ export function Projects() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
+          {featuredProjects.map((project, index) => (
             <a
               key={project.id}
               href={project.link}
@@ -79,7 +50,7 @@ export function Projects() {
               <p className="text-[var(--color-text-muted)] mb-6 leading-relaxed">{project.description}</p>
 
               <div className="flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
+                {project.tags.slice(0, 3).map((tag) => (
                   <span key={tag} className="px-3 py-1 text-xs uppercase tracking-wider text-[var(--color-text-dim)] bg-[var(--color-bg-elevated)] rounded-full border border-[var(--color-border)]">
                     {tag}
                   </span>
@@ -90,12 +61,12 @@ export function Projects() {
         </div>
 
         <div className={`mt-12 text-center transition-all duration-700 delay-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-          <a href="#" className="inline-flex items-center gap-2 text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors link-underline">
+          <Link to="/projects" className="inline-flex items-center gap-2 text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors link-underline">
             View All Projects
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
     </section>
