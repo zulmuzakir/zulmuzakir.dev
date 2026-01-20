@@ -3,7 +3,7 @@ import { useScrollReveal } from "../hooks/useScrollReveal";
 const skills = [
   {
     category: "Frontend",
-    items: ["React", "Next.js", "TypeScript", "TailwindCSS", "Vue.js"],
+    items: ["React", "TypeScript", "TailwindCSS", "Vue.js"],
   },
   {
     category: "Backend",
@@ -11,7 +11,7 @@ const skills = [
   },
   {
     category: "Tools & Others",
-    items: ["Git", "Docker", "Linux", "REST APIs", "GraphQL"],
+    items: ["Git", "Docker", "Linux", "REST APIs"],
   },
 ];
 
@@ -29,14 +29,18 @@ export function Skills() {
         <div className="mb-16">
           <span
             className={`inline-block text-sm uppercase tracking-[0.3em] text-[var(--color-text-muted)] mb-4 transition-all duration-700 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-4"
             }`}
           >
             02 / Skills
           </span>
           <h2
             className={`text-[var(--text-3xl)] font-bold tracking-tight transition-all duration-700 delay-100 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8"
             }`}
             style={{ fontFamily: "var(--font-space-grotesk)" }}
           >
@@ -50,7 +54,9 @@ export function Skills() {
             <div
               key={skillGroup.category}
               className={`transition-all duration-700 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-12"
               }`}
               style={{ transitionDelay: `${0.2 + groupIndex * 0.15}s` }}
             >
@@ -65,7 +71,9 @@ export function Skills() {
                   <li
                     key={skill}
                     className={`group flex items-center gap-3 p-4 rounded-xl bg-[var(--color-bg)] border border-[var(--color-border)] hover:border-[var(--color-text-muted)] transition-all duration-300 ${
-                      isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
+                      isVisible
+                        ? "opacity-100 translate-x-0"
+                        : "opacity-0 -translate-x-4"
                     }`}
                     style={{
                       transitionDelay: `${0.3 + groupIndex * 0.15 + skillIndex * 0.05}s`,

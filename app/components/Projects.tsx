@@ -24,6 +24,8 @@ export function Projects() {
               href={project.link}
               className={`group block p-8 rounded-2xl bg-[var(--color-bg-card)] border border-[var(--color-border)] hover-lift transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
               style={{ transitionDelay: `${0.2 + index * 0.1}s` }}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <div className="relative mb-6 aspect-video rounded-xl bg-[var(--color-bg-elevated)] overflow-hidden">
                 <div className="absolute inset-0 flex items-center justify-center">

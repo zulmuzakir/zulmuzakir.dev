@@ -15,14 +15,14 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 1,
-    title: "Project Alpha",
-    description: "A full-stack web application built with modern technologies. Features include real-time updates, authentication, and a beautiful UI.",
-    longDescription: "Project Alpha is a comprehensive full-stack application that showcases modern web development practices. It features real-time data synchronization, secure authentication flows, and a polished user interface built with attention to detail.",
-    tags: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "TailwindCSS"],
-    link: "#",
-    github: "https://github.com/yourusername/project-alpha",
+    title: "Langitku",
+    description: "A dedicated space for label and indie musicians to share, monetize, and publish their music to a major national streaming platform.",
+    longDescription: "",
+    tags: ["Vue.js", "Quasar Framework", "Java", "JHipster (Java Framework)", "PostgreSQL"],
+    link: "https://langitku.id",
+    github: "",
     featured: true,
-    year: "2024",
+    year: "",
   },
   {
     id: 2,
