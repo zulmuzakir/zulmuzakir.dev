@@ -2,7 +2,7 @@ import { AnimatedText, AnimatedWords, Typewriter } from "./AnimatedText";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center px-6 lg:px-8 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col justify-center px-6 lg:px-8 pb-24 overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Gradient orb */}
