@@ -28,14 +28,22 @@ export function Projects() {
               rel="noopener noreferrer"
             >
               <div className="relative mb-6 aspect-video rounded-xl bg-[var(--color-bg-elevated)] overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-full h-full opacity-30" style={{
-                    backgroundImage: `linear-gradient(45deg, var(--color-border) 25%, transparent 25%), linear-gradient(-45deg, var(--color-border) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--color-border) 75%), linear-gradient(-45deg, transparent 75%, var(--color-border) 75%)`,
-                    backgroundSize: "20px 20px",
-                    backgroundPosition: "0 0, 0 10px, 10px -10px, -10px 0px",
-                  }} />
-                  <span className="absolute text-[var(--color-text-dim)] text-sm uppercase tracking-widest">Preview</span>
-                </div>
+                {project.image ? (
+                  <img 
+                    src={project.image} 
+                    alt={`${project.title} preview`}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-full h-full opacity-30" style={{
+                      backgroundImage: `linear-gradient(45deg, var(--color-border) 25%, transparent 25%), linear-gradient(-45deg, var(--color-border) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--color-border) 75%), linear-gradient(-45deg, transparent 75%, var(--color-border) 75%)`,
+                      backgroundSize: "20px 20px",
+                      backgroundPosition: "0 0, 0 10px, 10px -10px, -10px 0px",
+                    }} />
+                    <span className="absolute text-[var(--color-text-dim)] text-sm uppercase tracking-widest">Preview</span>
+                  </div>
+                )}
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <span className="flex items-center gap-2 text-white font-medium">
                     View Project
