@@ -45,7 +45,7 @@ function ProjectsHeader() {
         <p
           className={`max-w-2xl text-[var(--text-lg)] text-[var(--color-text-muted)] transition-all duration-700 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
-          A collection of projects I've worked on, ranging from full-stack applications to developer tools and APIs.
+          A collection of projects I've worked on.
         </p>
       </div>
     </header>
