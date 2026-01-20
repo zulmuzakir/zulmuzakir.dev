@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import { href } from "react-router";
 
 const navLinks = [
   { href: "#about", label: "About" },
   { href: "#skills", label: "Skills" },
   { href: "#projects", label: "Projects" },
   { href: "#contact", label: "Contact" },
+  { href: "https://blog.zulmuzakir.dev", label: "Blog" }
 ];
 
 export function Header() {
