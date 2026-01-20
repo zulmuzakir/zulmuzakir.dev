@@ -95,11 +95,11 @@ export function Contact() {
           >
             <a
               href="mailto:your.email@example.com"
-              className="group inline-flex items-center gap-3 px-10 py-5 bg-white text-black text-lg font-medium rounded-full hover:bg-opacity-90 transition-all hover:gap-5"
+              className="group inline-flex items-center gap-3 px-10 py-5 bg-[var(--color-text)] text-[var(--color-bg)] text-lg font-medium rounded-full opacity-90 hover:opacity-100 transition-all hover:gap-5 hover:shadow-lg"
             >
               Say Hello
               <svg
-                className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+                className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
