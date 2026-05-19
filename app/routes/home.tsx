@@ -9,13 +9,17 @@ import { Contact, Footer } from "../components/Contact";
 export function meta({}: Route.MetaArgs) {
   return [
     { title: "Zulfikharali Muzakir | Software Developer" },
-    { name: "description", content: "Portfolio of Zulfikharali Muzakir - A passionate Software Developer crafting digital experiences." },
+    {
+      name: "description",
+      content:
+        "Portfolio of Zulfikharali Muzakir - A passionate Software Developer crafting digital experiences.",
+    },
   ];
 }
 
 export default function Home() {
   return (
-    <>
+    <div className="narrative-bg">
       <Header />
       <main>
         <Hero />
@@ -25,6 +29,6 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
-    </>
+    </div>
   );
 }

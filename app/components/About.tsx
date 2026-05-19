@@ -4,88 +4,69 @@ export function About() {
   const { ref: sectionRef, isVisible } = useScrollReveal<HTMLElement>();
 
   return (
-    <section id="about" ref={sectionRef} className="py-32 px-6 lg:px-8">
-      <div className="container-narrow">
-        {/* Section Header */}
-        <div className="mb-16">
-          <span
-            className={`inline-block text-sm uppercase tracking-[0.3em] text-[var(--color-text-muted)] mb-4 transition-all duration-700 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-4"
+    <section id="about" ref={sectionRef} className="relative py-32 px-6 lg:px-8">
+      {/* Vertical section marker */}
+      <div
+        className="hidden lg:block absolute right-8 top-1/2 -translate-y-1/2 writing-vertical section-marker"
+        style={{ opacity: isVisible ? 0.4 : 0, transition: "opacity 1s" }}
+      >
+        01 — about
+      </div>
+
+      <div className="container-narrow max-w-3xl">
+        {/* Pull quote — large serif */}
+        <blockquote
+          className={`heading-serif text-[var(--text-2xl)] text-[var(--color-warm-text)] mb-16 transition-all duration-1000 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
+          I build software the way light moves through leaves —
+          <span className="text-[var(--color-warm-accent)]"> with intention, warmth, and quiet precision.</span>
+        </blockquote>
+
+        {/* Narrative paragraphs */}
+        <div className="space-y-8">
+          <p
+            className={`text-[var(--text-lg)] text-[var(--color-warm-muted)] leading-relaxed transition-all duration-700 delay-200 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
           >
-            01 / About
-          </span>
-          <h2
-            className={`text-[var(--text-3xl)] font-bold tracking-tight transition-all duration-700 delay-100 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-8"
+            I'm a software developer with a passion for creating digital
+            experiences that are both functional and beautiful. I believe in
+            writing clean, maintainable code that solves real problems.
+          </p>
+          <p
+            className={`text-[var(--text-lg)] text-[var(--color-warm-muted)] leading-relaxed transition-all duration-700 delay-400 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
-            style={{ fontFamily: "var(--font-space-grotesk)" }}
           >
-            Who I Am
-          </h2>
+            With experience across the full stack, I enjoy tackling challenges
+            from database design to crafting full-stack applications. I'm
+            constantly learning and exploring new technologies like Go and
+            Rust to stay at the cutting edge of scalable software.
+          </p>
         </div>
 
-        {/* Content Grid */}
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-20">
-          {/* Left: Description */}
-          <div
-            className={`transition-all duration-700 delay-200 ${
-              isVisible
-                ? "opacity-100 translate-x-0"
-                : "opacity-0 -translate-x-8"
-            }`}
-          >
-            <p className="text-[var(--text-lg)] text-[var(--color-text-muted)] leading-relaxed mb-6">
-              I'm a software developer with a passion for creating digital
-              experiences that are both functional and beautiful. I believe in
-              writing clean, maintainable code that solves real problems.
-            </p>
-            <p className="text-[var(--text-lg)] text-[var(--color-text-muted)] leading-relaxed mb-6">
-              With experience across the full stack, I enjoy tackling challenges
-              from database design to make full-stack applications. I'm
-              constantly learning and exploring new technologies like Go and
-              Rust to stay at the cutting edge of scalable software.
-            </p>
-          </div>
-
-          {/* Right: Quick Facts */}
-          <div
-            className={`transition-all duration-700 delay-300 ${
-              isVisible
-                ? "opacity-100 translate-x-0"
-                : "opacity-0 translate-x-8"
-            }`}
-          >
-            <div className="grid grid-cols-2 gap-8">
-              {[
-                { number: "3+", label: "Years Experience" },
-                { number: "10+", label: "Technologies" },
-                { number: "∞", label: "Cups of Coffee" },
-              ].map((stat, index) => (
-                <div
-                  key={stat.label}
-                  className="p-6 rounded-2xl bg-[var(--color-bg-card)] border border-[var(--color-border)] hover-glow transition-all"
-                  style={{
-                    transitionDelay: `${0.4 + index * 0.1}s`,
-                  }}
-                >
-                  <div
-                    className="text-[var(--text-3xl)] font-bold mb-2"
-                    style={{ fontFamily: "var(--font-space-grotesk)" }}
-                  >
-                    {stat.number}
-                  </div>
-                  <div className="text-sm text-[var(--color-text-dim)] uppercase tracking-wider">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
+        {/* Inline stats — woven into the narrative */}
+        <div
+          className={`mt-16 flex flex-wrap gap-12 transition-all duration-700 delay-500 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          }`}
+        >
+          {[
+            { number: "3+", label: "years building" },
+            { number: "10+", label: "technologies" },
+            { number: "∞", label: "curiosity" },
+          ].map((stat) => (
+            <div key={stat.label} className="text-center">
+              <div className="heading-serif text-[var(--text-3xl)] text-[var(--color-warm-accent)]">
+                {stat.number}
+              </div>
+              <div className="text-mono text-[var(--color-warm-dim)] text-xs tracking-wider mt-1">
+                {stat.label}
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
