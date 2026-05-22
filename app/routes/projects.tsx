@@ -9,7 +9,7 @@ import { ProjectCard } from "../components/ProjectCard";
 export function meta({}: Route.MetaArgs) {
   return [
     { title: "Projects | Zulfikharali Muzakir" },
-    { name: "description", content: "Explore all projects by Zulfikharali Muzakir." },
+    { name: "description", content: "Selected product and engineering work by Zulfikharali Muzakir." },
   ];
 }
 
@@ -20,7 +20,7 @@ function ProjectsHeader() {
     <header ref={ref} className="pt-32 pb-16 px-6 lg:px-8">
       <div className="container-narrow">
         <div className={`mb-8 transition-all duration-500 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"}`}>
-          <Link to="/" className="inline-flex items-center gap-2 text-[var(--color-cool-muted)] hover:text-[var(--color-cool-text)] transition-colors">
+          <Link to="/" className="inline-flex items-center gap-2 text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors">
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
             </svg>
@@ -28,14 +28,14 @@ function ProjectsHeader() {
           </Link>
         </div>
 
-        <span className={`inline-block text-mono text-xs tracking-[0.2em] uppercase text-[var(--color-cool-muted)] mb-4 transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-          Portfolio
+        <span className={`section-label transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+          Project index
         </span>
-        <h1 className={`heading-serif text-[var(--text-3xl)] text-[var(--color-cool-text)] mb-6 transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+        <h1 className={`heading-serif mt-8 text-[var(--text-3xl)] text-[var(--color-text)] mb-6 transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           All Projects
         </h1>
-        <p className={`max-w-2xl text-[var(--text-lg)] text-[var(--color-cool-muted)] transition-all duration-700 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          A collection of projects I've worked on.
+        <p className={`max-w-2xl text-[var(--text-lg)] text-[var(--color-text-muted)] transition-all duration-700 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          A wider view of product and engineering work across internal tools, public platforms, and collaborative systems.
         </p>
       </div>
     </header>
@@ -57,7 +57,7 @@ export default function ProjectsPage() {
   }, []);
 
   return (
-    <div className="narrative-bg">
+    <div className="site-shell">
       <ProjectsHeader />
       <main className="py-16 px-6 lg:px-8">
         <div className="container-narrow">

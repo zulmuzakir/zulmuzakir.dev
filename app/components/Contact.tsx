@@ -43,87 +43,59 @@ export function Contact() {
   const { ref: sectionRef, isVisible } = useScrollReveal<HTMLElement>();
 
   return (
-    <section id="contact" ref={sectionRef} className="relative py-32 px-6 lg:px-8 overflow-hidden">
-      {/* Firefly particles */}
-      <div className="absolute inset-0 pointer-events-none">
-        {[...Array(8)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 rounded-full bg-[var(--color-cool-glow)] animate-firefly"
-            style={{
-              top: `${10 + i * 12}%`,
-              left: `${5 + i * 12}%`,
-              animationDelay: `${i * 0.7}s`,
-              animationDuration: `${4 + i * 0.6}s`,
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Vertical section marker */}
-      <div
-        className="hidden lg:block absolute left-8 top-1/2 -translate-y-1/2 writing-vertical section-marker"
-        style={{ opacity: isVisible ? 0.4 : 0, transition: "opacity 1s" }}
-      >
-        04 — connect
-      </div>
-
-      <div className="container-narrow max-w-2xl text-center">
-        {/* Poetic heading */}
+    <section id="contact" ref={sectionRef} className="section-divider py-28 px-6 lg:px-8 overflow-hidden">
+      <div className="container-narrow max-w-3xl">
+        <span className={`section-label transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          04 / Contact
+        </span>
         <h2
-          className={`heading-serif text-[var(--text-3xl)] text-[var(--color-cool-text)] mb-6 transition-all duration-700 ${
+          className={`heading-serif mt-8 text-[var(--text-3xl)] mb-6 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          Let's Create Something Together
+          If you need a software developer who thinks from the system outward, we should talk.
         </h2>
 
         <p
-          className={`text-[var(--text-lg)] text-[var(--color-cool-muted)] mb-12 leading-relaxed transition-all duration-700 delay-200 ${
+          className={`max-w-2xl text-[var(--text-lg)] text-[var(--color-text-muted)] mb-12 leading-relaxed transition-all duration-700 delay-200 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          Have a project in mind or just want to chat? I'm always open to
-          discussing new opportunities and ideas.
+          I am open to product roles, freelance work, and software projects
+          where reliability and clear execution matter.
         </p>
 
-        {/* CTA */}
         <div
-          className={`mb-16 transition-all duration-700 delay-300 ${
-            isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-95"
+          className={`flex flex-wrap items-center gap-4 transition-all duration-700 delay-300 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
           <a
             href="mailto:kuro26neko@proton.me"
-            className="group inline-flex items-center gap-3 px-10 py-5 bg-[var(--color-cool-accent)] text-[var(--color-cool-bg)] text-lg font-medium rounded-full hover:opacity-90 transition-all hover:gap-5"
+            className="button-primary"
           >
-            Say Hello
-            <svg className="w-5 h-5 transition-transform group-hover:translate-x-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            Email me
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
           </a>
+          <a href="https://blog.zulmuzakir.dev" className="button-secondary" target="_blank" rel="noopener noreferrer">
+            Read my blog
+          </a>
         </div>
 
-        {/* Divider */}
-        <div className={`flex items-center gap-4 mb-12 transition-all duration-700 delay-400 ${isVisible ? "opacity-100" : "opacity-0"}`}>
-          <span className="flex-1 h-px bg-[var(--color-border-cool)]" />
-          <span className="text-mono text-[var(--color-cool-dim)] text-xs tracking-widest">or find me on</span>
-          <span className="flex-1 h-px bg-[var(--color-border-cool)]" />
-        </div>
-
-        {/* Social links */}
-        <div className={`flex justify-center gap-4 transition-all duration-700 delay-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+        <div className={`mt-12 flex flex-wrap gap-6 transition-all duration-700 delay-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           {socialLinks.map((social, i) => (
             <a
               key={social.name}
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-4 rounded-xl border border-[var(--color-border-cool)] text-[var(--color-cool-muted)] hover:text-[var(--color-cool-accent)] hover:border-[var(--color-cool-accent)] hover-glow-cool transition-all duration-300"
+              className="text-sm text-[var(--color-text-muted)] link-underline"
               style={{ transitionDelay: `${0.5 + i * 0.08}s` }}
               title={social.name}
             >
-              {social.icon}
+              {social.name}
             </a>
           ))}
         </div>
@@ -134,8 +106,8 @@ export function Contact() {
 
 export function Footer() {
   return (
-    <footer className="py-8 px-6 border-t border-[var(--color-border-cool)]">
-      <div className="container-narrow flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-[var(--color-cool-dim)]">
+    <footer className="py-8 px-6 border-t border-[var(--color-border)]">
+      <div className="container-narrow flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-[var(--color-text-dim)]">
         <p>© {new Date().getFullYear()} Zulfikharali Muzakir</p>
         <p className="text-mono text-xs tracking-wider">
           built with care & React Router

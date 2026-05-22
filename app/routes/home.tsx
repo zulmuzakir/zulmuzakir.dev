@@ -12,14 +12,14 @@ export function meta({}: Route.MetaArgs) {
     {
       name: "description",
       content:
-        "Portfolio of Zulfikharali Muzakir - A passionate Software Developer crafting digital experiences.",
+        "Portfolio of Zulfikharali Muzakir, a software developer focused on reliable systems and thoughtful product delivery.",
     },
   ];
 }
 
 export default function Home() {
   return (
-    <div className="narrative-bg">
+    <div className="site-shell">
       <Header />
       <main>
         <Hero />

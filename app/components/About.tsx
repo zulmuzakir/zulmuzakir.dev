@@ -4,67 +4,71 @@ export function About() {
   const { ref: sectionRef, isVisible } = useScrollReveal<HTMLElement>();
 
   return (
-    <section id="about" ref={sectionRef} className="relative py-32 px-6 lg:px-8">
-      {/* Vertical section marker */}
-      <div
-        className="hidden lg:block absolute right-8 top-1/2 -translate-y-1/2 writing-vertical section-marker"
-        style={{ opacity: isVisible ? 0.4 : 0, transition: "opacity 1s" }}
-      >
-        01 — about
-      </div>
-
+    <section id="about" ref={sectionRef} className="section-divider py-28 px-6 lg:px-8">
       <div className="container-narrow max-w-3xl">
-        {/* Pull quote — large serif */}
-        <blockquote
-          className={`heading-serif text-[var(--text-2xl)] text-[var(--color-warm-text)] mb-16 transition-all duration-1000 ${
+        <span className={`section-label transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          01 / Approach
+        </span>
+        <h2
+          className={`heading-serif mt-8 text-[var(--text-2xl)] max-w-3xl transition-all duration-1000 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          I build software the way light moves through leaves —
-          <span className="text-[var(--color-warm-accent)]"> with intention, warmth, and quiet precision.</span>
-        </blockquote>
-
-        {/* Narrative paragraphs */}
-        <div className="space-y-8">
-          <p
-            className={`text-[var(--text-lg)] text-[var(--color-warm-muted)] leading-relaxed transition-all duration-700 delay-200 ${
+          I work best where product ambiguity, backend complexity, and delivery pressure meet.
+        </h2>
+        <div className="mt-12 grid gap-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(17rem,0.8fr)]">
+          <div className="space-y-7">
+            <p
+              className={`text-[var(--text-lg)] text-[var(--color-text-muted)] leading-relaxed transition-all duration-700 delay-200 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              }`}
+            >
+              I am a software developer focused on building dependable products.
+              Most of my work starts with the system: data shape, request flow,
+              operational clarity, and how a feature will survive once real users
+              and internal teams depend on it.
+            </p>
+            <p
+              className={`text-[var(--text-lg)] text-[var(--color-text-muted)] leading-relaxed transition-all duration-700 delay-300 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              }`}
+            >
+              I still care about the interface, but I treat it as part of delivery,
+              not decoration. The goal is software that is understandable, stable,
+              and useful from database to screen.
+            </p>
+          </div>
+          <div
+            className={`surface-panel rounded-[1.75rem] p-6 transition-all duration-700 delay-400 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
           >
-            I'm a software developer with a passion for creating digital
-            experiences that are both functional and beautiful. I believe in
-            writing clean, maintainable code that solves real problems.
-          </p>
-          <p
-            className={`text-[var(--text-lg)] text-[var(--color-warm-muted)] leading-relaxed transition-all duration-700 delay-400 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-            }`}
-          >
-            With experience across the full stack, I enjoy tackling challenges
-            from database design to crafting full-stack applications. I'm
-            constantly learning and exploring new technologies like Go and
-            Rust to stay at the cutting edge of scalable software.
-          </p>
+            <p className="text-mono text-xs uppercase tracking-[0.2em] text-[var(--color-text-dim)]">
+              Working principles
+            </p>
+            <ul className="mt-6 space-y-4 text-sm text-[var(--color-text-muted)]">
+              <li>Design APIs and data models that stay readable under change.</li>
+              <li>Prefer pragmatic architecture over fashionable complexity.</li>
+              <li>Ship interfaces that explain the system instead of hiding it.</li>
+            </ul>
+          </div>
         </div>
 
-        {/* Inline stats — woven into the narrative */}
         <div
-          className={`mt-16 flex flex-wrap gap-12 transition-all duration-700 delay-500 ${
+          className={`mt-16 grid gap-6 md:grid-cols-3 transition-all duration-700 delay-500 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
           {[
-            { number: "3+", label: "years building" },
-            { number: "10+", label: "technologies" },
-            { number: "∞", label: "curiosity" },
+            { number: "3+", label: "years building production software" },
+            { number: "4", label: "featured products across public and internal use" },
+            { number: "1", label: "priority: systems that hold up in real use" },
           ].map((stat) => (
-            <div key={stat.label} className="text-center">
-              <div className="heading-serif text-[var(--text-3xl)] text-[var(--color-warm-accent)]">
+            <div key={stat.label} className="border-t border-[var(--color-border)] pt-5">
+              <div className="heading-serif text-[var(--text-xl)] text-[var(--color-accent-strong)]">
                 {stat.number}
               </div>
-              <div className="text-mono text-[var(--color-warm-dim)] text-xs tracking-wider mt-1">
-                {stat.label}
-              </div>
+              <div className="mt-2 text-sm text-[var(--color-text-muted)]">{stat.label}</div>
             </div>
           ))}
         </div>

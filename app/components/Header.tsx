@@ -22,30 +22,28 @@ export function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "glass-warm py-3" : "bg-transparent py-5"
+        scrolled ? "header-blur py-3" : "bg-transparent py-5"
       }`}
     >
       <nav className="container-narrow flex items-center justify-between">
-        {/* Logo — serif */}
         <a
           href="#"
-          className="heading-serif text-xl text-[var(--color-warm-text)]"
+          className="heading-serif text-xl text-[var(--color-text)]"
           style={{
             opacity: mounted ? 1 : 0,
             transform: mounted ? "translateY(0)" : "translateY(-10px)",
             transition: "opacity 0.6s, transform 0.6s",
           }}
         >
-          zul<span className="text-[var(--color-warm-accent)]">.</span>
+          zul<span className="text-[var(--color-accent)]">.</span>
         </a>
 
-        {/* Nav links — monospace */}
         <ul className="hidden md:flex items-center gap-8">
           {navLinks.map((link, i) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-mono text-xs tracking-[0.15em] uppercase text-[var(--color-warm-muted)] hover:text-[var(--color-warm-text)] transition-colors link-underline"
+                className="text-mono text-xs tracking-[0.15em] uppercase text-[var(--color-text-dim)] hover:text-[var(--color-text)] transition-colors link-underline"
                 style={{
                   opacity: mounted ? 1 : 0,
                   transform: mounted ? "translateY(0)" : "translateY(-10px)",
@@ -59,14 +57,13 @@ export function Header() {
           ))}
         </ul>
 
-        {/* Mobile menu button */}
         <button
           className="md:hidden flex flex-col gap-1.5 p-2"
           aria-label="Toggle menu"
           style={{ opacity: mounted ? 1 : 0, transition: "opacity 0.6s" }}
         >
-          <span className="w-5 h-px bg-[var(--color-warm-text)]" />
-          <span className="w-5 h-px bg-[var(--color-warm-text)]" />
+          <span className="w-5 h-px bg-[var(--color-text)]" />
+          <span className="w-5 h-px bg-[var(--color-text)]" />
         </button>
       </nav>
     </header>
