@@ -253,6 +253,31 @@ body::after {
   }
 }
 
+@media (max-width: 640px) {
+  .container-narrow {
+    padding: 0 1rem;
+  }
+
+  .section-label {
+    gap: 0.55rem;
+    letter-spacing: 0.16em;
+  }
+
+  .section-label::before {
+    width: 1.6rem;
+  }
+
+  .button-primary,
+  .button-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .meta-chip {
+    padding-inline: 0.7rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
