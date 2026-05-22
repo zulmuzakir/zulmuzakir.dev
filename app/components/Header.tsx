@@ -27,6 +27,35 @@ export function Header() {
     };
   }, [menuOpen]);
 
+  const handleSectionNavigation = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    if (!href.startsWith("#")) {
+      setMenuOpen(false);
+      return;
+    }
+
+    event.preventDefault();
+
+    if (href === "#") {
+      setMenuOpen(false);
+      window.history.replaceState(null, "", "#");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    const target = document.querySelector<HTMLElement>(href);
+    if (!target) {
+      setMenuOpen(false);
+      return;
+    }
+
+    setMenuOpen(false);
+    window.history.replaceState(null, "", href);
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <>
       <header
@@ -38,7 +67,7 @@ export function Header() {
           <a
             href="#"
             className="heading-serif text-xl text-[var(--color-text)]"
-            onClick={() => setMenuOpen(false)}
+            onClick={(event) => handleSectionNavigation(event, "#")}
             style={{
               opacity: mounted ? 1 : 0,
               transform: mounted ? "translateY(0)" : "translateY(-10px)",
@@ -56,6 +85,7 @@ export function Header() {
                   className="text-mono text-xs tracking-[0.15em] uppercase text-[var(--color-text-dim)] hover:text-[var(--color-text)] transition-colors link-underline"
                   target={link.href.startsWith("http") ? "_blank" : undefined}
                   rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  onClick={(event) => handleSectionNavigation(event, link.href)}
                   style={{
                     opacity: mounted ? 1 : 0,
                     transform: mounted ? "translateY(0)" : "translateY(-10px)",
@@ -120,7 +150,7 @@ export function Header() {
                   target={link.href.startsWith("http") ? "_blank" : undefined}
                   rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   className="block rounded-2xl px-4 py-3 text-base font-semibold text-[var(--color-text)] transition-colors hover:bg-[var(--color-accent-soft)]"
-                  onClick={() => setMenuOpen(false)}
+                  onClick={(event) => handleSectionNavigation(event, link.href)}
                 >
                   {link.label}
                 </a>
