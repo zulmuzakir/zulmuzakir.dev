@@ -62,7 +62,7 @@ export function Skills() {
                 {group.items.map((skill, i) => (
                   <span
                     key={skill}
-                    className={`px-3 py-2 rounded-full border border-[var(--color-border)] bg-white/40 text-[var(--color-text-muted)] text-sm cursor-default transition-all duration-500 ${
+                    className={`px-3 py-2 rounded-full border border-[var(--color-border)] bg-white/40 dark:bg-white/8 text-[var(--color-text-muted)] dark:text-[var(--color-text)] text-sm cursor-default transition-all duration-500 ${
                       isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                     }`}
                     style={{
