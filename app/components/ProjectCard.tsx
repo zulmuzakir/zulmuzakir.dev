@@ -57,12 +57,12 @@ export function ProjectCard({
         } ${className}`}
         style={{ transitionDelay: `${0.2 + index * 0.12}s` }}
       >
-        <div className="relative aspect-[16/10] overflow-hidden rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-surface-strong)]">
+        <div className="group relative aspect-[16/10] overflow-hidden rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-surface-strong)]">
           {project.image ? (
             <img
               src={project.image}
               alt={`${project.title} preview`}
-              className="h-full w-full object-cover object-top"
+              className="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
             />
           ) : (
             <div className="absolute inset-0 flex items-center justify-center text-mono text-xs uppercase tracking-[0.2em] text-[var(--color-text-dim)]">
@@ -144,7 +144,7 @@ export function ProjectCard({
     );
   }
 
-  const cardClasses = `surface-panel rounded-[1.75rem] p-6 transition-all duration-700 ${
+  const cardClasses = `surface-panel rounded-[1.75rem] p-6 transition-all duration-700 hover:-translate-y-1 hover:shadow-[0_32px_80px_-40px_var(--color-shadow)] ${
     isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
   } ${className}`;
 
