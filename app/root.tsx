@@ -96,11 +96,24 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   }
 
   return (
-    <main className="pt-16 p-4 container mx-auto">
-      <h1>{message}</h1>
-      <p>{details}</p>
+    <main className="min-h-screen flex flex-col items-center justify-center px-6 text-center">
+      <p className="text-mono text-xs uppercase tracking-[0.22em] text-[var(--color-text-dim)]">
+        {message === "404" ? "Page not found" : "Something went wrong"}
+      </p>
+      <h1 className="heading-serif text-[var(--text-hero)] mt-4 text-[var(--color-text)]">
+        {message}
+      </h1>
+      <p className="mt-6 max-w-md text-[var(--text-lg)] text-[var(--color-text-muted)]">
+        {details}
+      </p>
+      <a href="/" className="button-primary mt-10">
+        Back to home
+        <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+        </svg>
+      </a>
       {stack && (
-        <pre className="w-full p-4 overflow-x-auto">
+        <pre className="mt-12 w-full max-w-2xl p-4 overflow-x-auto text-left text-xs rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)]">
           <code>{stack}</code>
         </pre>
       )}
