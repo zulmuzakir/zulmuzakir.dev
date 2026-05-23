@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -97,28 +98,34 @@ export function Header() {
                 </a>
               </li>
             ))}
+            <li style={{ opacity: mounted ? 1 : 0, transition: "opacity 0.6s", transitionDelay: "0.4s" }}>
+              <ThemeToggle />
+            </li>
           </ul>
 
-          <button
-            type="button"
-            className="md:hidden relative flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-border)] bg-white/40"
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={menuOpen}
-            aria-controls="mobile-navigation"
-            onClick={() => setMenuOpen((open) => !open)}
-            style={{ opacity: mounted ? 1 : 0, transition: "opacity 0.6s" }}
-          >
-            <span
-              className={`absolute h-px w-5 bg-[var(--color-text)] transition-transform duration-300 ${
-                menuOpen ? "rotate-45" : "-translate-y-[0.22rem]"
-              }`}
-            />
-            <span
-              className={`absolute h-px w-5 bg-[var(--color-text)] transition-transform duration-300 ${
-                menuOpen ? "-rotate-45" : "translate-y-[0.22rem]"
-              }`}
-            />
-          </button>
+          <div className="md:hidden flex items-center gap-2">
+            <ThemeToggle />
+            <button
+              type="button"
+              className="relative flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-border)] bg-white/40 dark:bg-white/5"
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-navigation"
+              onClick={() => setMenuOpen((open) => !open)}
+              style={{ opacity: mounted ? 1 : 0, transition: "opacity 0.6s" }}
+            >
+              <span
+                className={`absolute h-px w-5 bg-[var(--color-text)] transition-transform duration-300 ${
+                  menuOpen ? "rotate-45" : "-translate-y-[0.22rem]"
+                }`}
+              />
+              <span
+                className={`absolute h-px w-5 bg-[var(--color-text)] transition-transform duration-300 ${
+                  menuOpen ? "-rotate-45" : "translate-y-[0.22rem]"
+                }`}
+              />
+            </button>
+          </div>
         </nav>
       </header>
 
@@ -135,7 +142,7 @@ export function Header() {
         />
         <div
           id="mobile-navigation"
-          className={`absolute left-4 right-4 top-24 rounded-[2rem] border border-[var(--color-border)] bg-[rgba(251,248,242,0.96)] p-6 shadow-[0_28px_80px_-40px_rgba(29,38,49,0.28)] transition-all duration-300 ${
+          className={`absolute left-4 right-4 top-24 rounded-[2rem] border border-[var(--color-border)] bg-[rgba(251,248,242,0.96)] dark:bg-[rgba(28,30,34,0.96)] p-6 shadow-[0_28px_80px_-40px_rgba(29,38,49,0.28)] transition-all duration-300 ${
             menuOpen ? "translate-y-0" : "-translate-y-4"
           }`}
         >

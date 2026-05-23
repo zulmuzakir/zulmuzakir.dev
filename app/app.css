@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --color-bg: #f2efe8;
   --color-bg-elevated: rgba(255, 252, 247, 0.76);
@@ -40,6 +42,22 @@
   --duration-slow: 720ms;
 }
 
+.dark {
+  --color-bg: #141618;
+  --color-bg-elevated: rgba(28, 30, 34, 0.76);
+  --color-surface: #1c1e22;
+  --color-surface-strong: #22252a;
+  --color-text: #e8e6e1;
+  --color-text-muted: #9ba3ae;
+  --color-text-dim: #6b7280;
+  --color-accent: #7ba4c9;
+  --color-accent-strong: #a3c4e0;
+  --color-accent-soft: rgba(123, 164, 201, 0.12);
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-border-strong: rgba(255, 255, 255, 0.18);
+  --color-shadow: rgba(0, 0, 0, 0.3);
+}
+
 @theme inline {
   --color-background: var(--color-bg);
   --color-foreground: var(--color-text);
@@ -65,6 +83,13 @@ body {
   font-family: var(--font-sans);
   line-height: 1.65;
   overflow-x: hidden;
+}
+
+.dark body,
+body:where(.dark *) {
+  background:
+    radial-gradient(circle at top left, rgba(123, 164, 201, 0.06), transparent 28%),
+    linear-gradient(180deg, #181a1e 0%, #141618 100%);
 }
 
 body::after {
@@ -143,6 +168,11 @@ section[id] {
   border-bottom: 1px solid rgba(30, 33, 38, 0.08);
 }
 
+.dark .header-blur {
+  background: rgba(20, 22, 24, 0.82);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
 .button-primary,
 .button-secondary {
   display: inline-flex;
@@ -164,6 +194,10 @@ section[id] {
 .button-primary {
   background: var(--color-text);
   color: #f7f3ec;
+}
+
+.dark .button-primary {
+  color: #141618;
 }
 
 .button-primary:hover {
