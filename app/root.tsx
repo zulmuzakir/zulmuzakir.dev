@@ -36,6 +36,28 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta property="og:title" content="Zulfikharali Muzakir | Software Developer" />
         <meta property="og:description" content="Portfolio of Zulfikharali Muzakir - A passionate Software Developer crafting digital experiences." />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://zulmuzakir.dev/og-image.png" />
+        <meta property="og:url" content="https://zulmuzakir.dev" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://zulmuzakir.dev/og-image.png" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Zulfikharali Muzakir",
+              url: "https://zulmuzakir.dev",
+              jobTitle: "Software Developer",
+              sameAs: [
+                "https://github.com/zulmuzakir",
+                "https://linkedin.com/in/zulmuzakir",
+                "https://twitter.com/zulmuzakir",
+              ],
+              knowsAbout: ["React", "Go", "Node.js", "Laravel", "PostgreSQL", "TypeScript"],
+            }),
+          }}
+        />
         <Meta />
         <Links />
       </head>
