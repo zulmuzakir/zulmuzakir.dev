@@ -62,8 +62,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body className="antialiased" style={{ fontFamily: "var(--font-sans)" }}>
-        <a href="#main-content" className="skip-nav">Skip to main content</a>
-        {children}
+        <ThemeProvider>
+          <a href="#main-content" className="skip-nav">Skip to main content</a>
+          {children}
+        </ThemeProvider>
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -72,11 +74,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return (
-    <ThemeProvider>
-      <Outlet />
-    </ThemeProvider>
-  );
+  return <Outlet />;
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
