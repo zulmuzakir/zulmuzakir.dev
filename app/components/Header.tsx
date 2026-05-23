@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { motion } from "motion/react";
 import { ThemeToggle } from "./ThemeToggle";
 
 const navLinks = [
@@ -11,11 +12,9 @@ const navLinks = [
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -65,54 +64,57 @@ export function Header() {
         }`}
       >
         <nav className="container-narrow flex items-center justify-between">
-          <a
+          <motion.a
             href="#"
             className="heading-serif text-xl text-[var(--color-text)]"
             onClick={(event) => handleSectionNavigation(event, "#")}
-            style={{
-              opacity: mounted ? 1 : 0,
-              transform: mounted ? "translateY(0)" : "translateY(-10px)",
-              transition: "opacity 0.6s, transform 0.6s",
-            }}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
           >
             zul<span className="text-[var(--color-accent)]">.</span>
-          </a>
+          </motion.a>
 
           <ul className="hidden md:flex items-center gap-8">
             {navLinks.map((link, i) => (
-              <li key={link.href}>
+              <motion.li
+                key={link.href}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 + i * 0.05 }}
+              >
                 <a
                   href={link.href}
                   className="text-mono text-xs tracking-[0.15em] uppercase text-[var(--color-text-dim)] hover:text-[var(--color-text)] transition-colors link-underline"
                   target={link.href.startsWith("http") ? "_blank" : undefined}
                   rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   onClick={(event) => handleSectionNavigation(event, link.href)}
-                  style={{
-                    opacity: mounted ? 1 : 0,
-                    transform: mounted ? "translateY(0)" : "translateY(-10px)",
-                    transition: "opacity 0.6s, transform 0.6s, color 0.3s",
-                    transitionDelay: `${0.1 + i * 0.05}s`,
-                  }}
                 >
                   {link.label}
                 </a>
-              </li>
+              </motion.li>
             ))}
-            <li style={{ opacity: mounted ? 1 : 0, transition: "opacity 0.6s", transitionDelay: "0.4s" }}>
+            <motion.li
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
               <ThemeToggle />
-            </li>
+            </motion.li>
           </ul>
 
           <div className="md:hidden flex items-center gap-2">
             <ThemeToggle />
-            <button
+            <motion.button
               type="button"
               className="relative flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-border)] bg-white/40 dark:bg-white/5"
               aria-label={menuOpen ? "Close menu" : "Open menu"}
               aria-expanded={menuOpen}
               aria-controls="mobile-navigation"
               onClick={() => setMenuOpen((open) => !open)}
-              style={{ opacity: mounted ? 1 : 0, transition: "opacity 0.6s" }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6 }}
             >
               <span
                 className={`absolute h-px w-5 bg-[var(--color-text)] transition-transform duration-300 ${
@@ -124,7 +126,7 @@ export function Header() {
                   menuOpen ? "-rotate-45" : "translate-y-[0.22rem]"
                 }`}
               />
-            </button>
+            </motion.button>
           </div>
         </nav>
       </header>

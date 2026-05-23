@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
+import { motion } from "motion/react";
+
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 24 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] as const },
+});
 
 export function Hero() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
     <section className="relative min-h-screen flex items-center px-6 lg:px-8 pt-28 pb-24 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
@@ -16,58 +16,29 @@ export function Hero() {
       <div className="container-narrow relative z-10">
         <div className="grid gap-16 lg:grid-cols-[minmax(0,1.7fr)_minmax(18rem,0.8fr)] lg:items-end">
           <div>
-            <span
-              className="section-label mb-8"
-              style={{
-                opacity: mounted ? 1 : 0,
-                transform: mounted ? "translateY(0)" : "translateY(10px)",
-                transition: "opacity 0.7s, transform 0.7s",
-              }}
-            >
+            <motion.span className="section-label mb-8" {...fadeUp(0)}>
               Software developer
-            </span>
-            <h1
+            </motion.span>
+            <motion.h1
               className="heading-serif max-w-5xl text-[var(--text-hero)]"
-              style={{
-                opacity: mounted ? 1 : 0,
-                transform: mounted ? "translateY(0)" : "translateY(36px)",
-                transition: "opacity 0.9s 0.12s, transform 0.9s 0.12s",
-              }}
+              {...fadeUp(0.12)}
             >
               I build reliable systems and the product surfaces that make them usable.
-            </h1>
-            <p
+            </motion.h1>
+            <motion.p
               className="mt-8 max-w-2xl text-[var(--text-lg)] text-[var(--color-text-muted)]"
-              style={{
-                opacity: mounted ? 1 : 0,
-                transform: mounted ? "translateY(0)" : "translateY(24px)",
-                transition: "opacity 0.8s 0.24s, transform 0.8s 0.24s",
-              }}
+              {...fadeUp(0.24)}
             >
               I work across APIs, databases, internal tooling, and delivery workflows.
               My strength is turning product requirements into maintainable systems
               without losing clarity on the interface layer.
-            </p>
-            <div
-              className="mt-10 flex flex-wrap gap-3"
-              style={{
-                opacity: mounted ? 1 : 0,
-                transform: mounted ? "translateY(0)" : "translateY(18px)",
-                transition: "opacity 0.8s 0.34s, transform 0.8s 0.34s",
-              }}
-            >
+            </motion.p>
+            <motion.div className="mt-10 flex flex-wrap gap-3" {...fadeUp(0.34)}>
               <span className="meta-chip">React Router</span>
               <span className="meta-chip">Go / Node.js / Laravel</span>
               <span className="meta-chip">PostgreSQL / MySQL / MongoDB</span>
-            </div>
-            <div
-              className="mt-12 flex flex-wrap gap-4"
-              style={{
-                opacity: mounted ? 1 : 0,
-                transform: mounted ? "translateY(0)" : "translateY(18px)",
-                transition: "opacity 0.8s 0.44s, transform 0.8s 0.44s",
-              }}
-            >
+            </motion.div>
+            <motion.div className="mt-12 flex flex-wrap gap-4" {...fadeUp(0.44)}>
               <a href="#projects" className="button-primary">
                 View selected work
                 <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -77,16 +48,14 @@ export function Hero() {
               <a href="#contact" className="button-secondary">
                 Contact
               </a>
-            </div>
+            </motion.div>
           </div>
 
-          <aside
+          <motion.aside
             className="surface-panel rounded-[2rem] p-6 lg:p-8"
-            style={{
-              opacity: mounted ? 1 : 0,
-              transform: mounted ? "translateY(0)" : "translateY(26px)",
-              transition: "opacity 0.9s 0.52s, transform 0.9s 0.52s",
-            }}
+            initial={{ opacity: 0, y: 26 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.52, ease: [0.22, 1, 0.36, 1] }}
           >
             <p className="text-mono text-xs uppercase tracking-[0.22em] text-[var(--color-text-dim)]">
               Current focus
@@ -110,7 +79,7 @@ export function Hero() {
                 <dd className="mt-1 font-semibold text-[var(--color-text)]">Recruiter and client opportunities</dd>
               </div>
             </dl>
-          </aside>
+          </motion.aside>
         </div>
       </div>
     </section>
