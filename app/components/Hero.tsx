@@ -38,7 +38,8 @@ export function Hero() {
               Software developer
             </motion.span>
             <motion.p
-              className="mt-6 heading-serif text-[var(--text-3xl)] text-[var(--color-accent-strong)]"
+              className="mt-6 heading-serif text-[var(--color-accent-strong)]"
+              style={{ fontSize: "var(--text-3xl)" }}
               {...fadeUp(0.06)}
             >
               Zulfikharali Muzakir
