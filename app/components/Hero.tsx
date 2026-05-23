@@ -10,7 +10,25 @@ export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center px-6 lg:px-8 pt-28 pb-24 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute right-[-4rem] top-24 h-[26rem] w-[26rem] rounded-full bg-[var(--color-accent-soft)] blur-3xl" />
+        <motion.div
+          className="absolute right-[-4rem] top-24 h-[26rem] w-[26rem] rounded-full bg-[var(--color-accent-soft)] blur-3xl"
+          animate={{
+            scale: [1, 1.15, 0.95, 1.08, 1],
+            x: [0, 30, -20, 10, 0],
+            y: [0, -20, 15, -10, 0],
+            borderRadius: ["50%", "40% 60% 55% 45%", "55% 45% 40% 60%", "45% 55% 60% 40%", "50%"],
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute left-[15%] bottom-[20%] h-[18rem] w-[18rem] rounded-full bg-[var(--color-accent-soft)] opacity-50 blur-3xl"
+          animate={{
+            scale: [1, 0.9, 1.1, 0.95, 1],
+            x: [0, -15, 25, -10, 0],
+            y: [0, 20, -15, 10, 0],
+          }}
+          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+        />
         <div className="absolute left-[8%] top-[18%] h-px w-24 bg-[var(--color-border-strong)]" />
       </div>
       <div className="container-narrow relative z-10">
