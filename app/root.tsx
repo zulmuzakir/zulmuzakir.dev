@@ -40,6 +40,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body className="antialiased" style={{ fontFamily: "var(--font-sans)" }}>
+        <a href="#main-content" className="skip-nav">Skip to main content</a>
         {children}
         <ScrollRestoration />
         <Scripts />

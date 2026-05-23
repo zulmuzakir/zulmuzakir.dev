@@ -59,7 +59,7 @@ export default function ProjectsPage() {
   return (
     <div className="site-shell">
       <ProjectsHeader />
-      <main className="py-16 px-6 lg:px-8">
+      <main id="main-content" className="py-16 px-6 lg:px-8">
         <div className="container-narrow">
           <div className="grid md:grid-cols-2 gap-8">
             {projects.map((project, index) => (

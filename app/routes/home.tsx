@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <div className="site-shell">
       <Header />
-      <main>
+      <main id="main-content">
         <Hero />
         <About />
         <Skills />

@@ -107,6 +107,39 @@ body::after {
   color: var(--color-text);
 }
 
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.skip-nav {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.skip-nav:focus {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  width: auto;
+  height: auto;
+  padding: 0.75rem 1.25rem;
+  background: var(--color-text);
+  color: var(--color-bg);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  border-radius: 999px;
+  text-decoration: none;
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
 .site-shell {
   min-height: 100vh;
 }
