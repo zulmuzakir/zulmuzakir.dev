@@ -37,8 +37,14 @@ export function Hero() {
             <motion.span className="section-label mb-8" {...fadeUp(0)}>
               Software developer
             </motion.span>
+            <motion.p
+              className="mt-6 heading-serif text-[var(--text-2xl)] text-[var(--color-accent-strong)]"
+              {...fadeUp(0.06)}
+            >
+              Zulfikharali Muzakir
+            </motion.p>
             <motion.h1
-              className="heading-serif max-w-5xl text-[var(--text-hero)]"
+              className="heading-serif mt-4 max-w-5xl text-[var(--text-hero)]"
               {...fadeUp(0.12)}
             >
               I build reliable systems and the product surfaces that make them usable.
