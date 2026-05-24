@@ -29,7 +29,6 @@ export function Hero() {
           }}
           transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
         />
-        <div className="absolute left-[8%] top-[18%] h-px w-24 bg-[var(--color-border-strong)]" />
       </div>
       <div className="container-narrow relative z-10">
         <div className="grid gap-16 lg:grid-cols-[minmax(0,1.7fr)_minmax(18rem,0.8fr)] lg:items-end">
