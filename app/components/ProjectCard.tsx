@@ -110,7 +110,7 @@ export function ProjectCard({
               {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full border border-[var(--color-border)] bg-white/35 px-3 py-1 text-xs text-[var(--color-text-muted)]"
+                  className="tag-chip"
                 >
                   {tag}
                 </span>
@@ -163,7 +163,7 @@ export function ProjectCard({
         {project.tags.map((tag) => (
           <span
             key={tag}
-            className="rounded-full border border-[var(--color-border)] bg-white/35 px-3 py-1 text-xs text-[var(--color-text-muted)]"
+            className="tag-chip"
           >
             {tag}
           </span>
